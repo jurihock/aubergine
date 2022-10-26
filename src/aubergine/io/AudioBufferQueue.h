@@ -5,7 +5,7 @@
 #include <aubergine/etc/FIFO.h>
 #include <aubergine/io/AudioBuffer.h>
 
-class AudioBufferQueue : public FIFO<AudioBuffer>
+class AudioBufferQueue final : public FIFO<AudioBuffer>
 {
 
 public:

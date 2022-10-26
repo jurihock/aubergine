@@ -31,32 +31,37 @@ void AudioPipeline::open()
 
   if (source->samplerate() != sink->samplerate())
   {
-    LOG(ERROR) << $("Unequal audio stream sample rate: {0} (source), {1} (sink)!",
-                    source->samplerate(), sink->samplerate());
+    throw std::runtime_error(
+      $("Unequal audio stream sample rate: {0} (source), {1} (sink)!",
+        source->samplerate(), sink->samplerate()));
   }
 
   if (source->samplerate() == 0 || sink->samplerate() == 0)
   {
-    LOG(ERROR) << $("Invalid audio stream sample rate: {0} (source), {1} (sink)!",
-                    source->samplerate(), sink->samplerate());
+    throw std::runtime_error(
+      $("Invalid audio stream sample rate: {0} (source), {1} (sink)!",
+        source->samplerate(), sink->samplerate()));
   }
 
   if (source->buffersize() != sink->buffersize())
   {
-    LOG(ERROR) << $("Unequal audio stream buffer size: {0} (source), {1} (sink)!",
-                    source->buffersize(), sink->buffersize());
+    throw std::runtime_error(
+      $("Unequal audio stream buffer size: {0} (source), {1} (sink)!",
+        source->buffersize(), sink->buffersize()));
   }
 
   if (source->buffersize() == 0 || sink->buffersize() == 0)
   {
-    LOG(ERROR) << $("Invalid audio stream buffer size: {0} (source), {1} (sink)!",
-                    source->buffersize(), sink->buffersize());
+    throw std::runtime_error(
+      $("Invalid audio stream buffer size: {0} (source), {1} (sink)!",
+        source->buffersize(), sink->buffersize()));
   }
 
   if (source->maxbuffersize() == 0 || sink->maxbuffersize() == 0)
   {
-    LOG(ERROR) << $("Invalid audio stream max. buffer size: {0} (source), {1} (sink)!",
-                    source->maxbuffersize(), sink->maxbuffersize());
+    throw std::runtime_error(
+      $("Invalid audio stream max. buffer size: {0} (source), {1} (sink)!",
+        source->maxbuffersize(), sink->maxbuffersize()));
   }
 
   if (effect)
@@ -176,13 +181,13 @@ void AudioPipeline::loop()
 
       if (!ok)
       {
-        LOG(WARNING) << $("Audio pipe fifo overflow!");
+        // TODO: LOG(WARNING) << $("Audio pipe fifo overflow!");
       }
     });
 
     if (!ok)
     {
-      LOG(WARNING) << $("Audio pipe fifo underflow!");
+      // TODO: LOG(WARNING) << $("Audio pipe fifo underflow!");
     }
   };
 
@@ -212,10 +217,12 @@ void AudioPipeline::loop()
 
     if (millis(now() - timestamp) > 5000)
     {
-      LOG(INFO)
-        << "Timing: "
-        << "inner " << timers.inner.str() << " / "
-        << "outer " << timers.outer.str();
+      // TODO
+
+//      LOG(INFO)
+//        << "Timing: "
+//        << "inner " << timers.inner.str() << " / "
+//        << "outer " << timers.outer.str();
 
       timers.outer.cls();
       timers.inner.cls();
@@ -230,10 +237,10 @@ void AudioPipeline::onxrun(const oboe::Direction direction, const int32_t count)
   switch (direction)
   {
     case oboe::Direction::Input:
-      LOG(WARNING) << $("Audio source {0} overruns occured!", count);
+      // TODO: LOG(WARNING) << $("Audio source {0} overruns occured!", count);
       break;
     case oboe::Direction::Output:
-      LOG(WARNING) << $("Audio sink {0} underruns occured!", count);
+      // TODO: LOG(WARNING) << $("Audio sink {0} underruns occured!", count);
       break;
   }
 }
@@ -242,9 +249,7 @@ bool AudioPipeline::onerror(const oboe::Direction direction, const oboe::Result 
 {
   std::unique_lock lock(onerrormutex);
 
-  LOG(WARNING) << $("Aborting audio pipeline due to {0} error {1}!",
-                    oboe::convertToText(direction),
-                    oboe::convertToText(error));
+  // TODO: LOG(WARNING) << $("Aborting audio pipeline due to {0} error {1}!", oboe::convertToText(direction), oboe::convertToText(error));
 
   close();
 

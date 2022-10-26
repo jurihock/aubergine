@@ -2,7 +2,7 @@
 
 #include <aubergine/Header.h>
 
-class AudioBuffer
+class AudioBuffer final
 {
 
 public:

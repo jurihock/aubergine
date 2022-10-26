@@ -139,19 +139,19 @@ void AudioStream::open()
 
   config.timeout = std::chrono::milliseconds(millis);
 
-  LOG(DEBUG) << "~ " << oboe::convertToText(stream->getDirection()) << " ~";
-  LOG(DEBUG) << "DeviceId " << stream->getDeviceId();
-  LOG(DEBUG) << "AudioApi " << oboe::convertToText(stream->getAudioApi());
-  LOG(DEBUG) << "SharingMode " << oboe::convertToText(stream->getSharingMode());
-  LOG(DEBUG) << "PerformanceMode " << oboe::convertToText(stream->getPerformanceMode());
-  LOG(DEBUG) << "SampleRate " << stream->getSampleRate();
-  LOG(DEBUG) << "ChannelCount " << stream->getChannelCount();
-  LOG(DEBUG) << "Format " << oboe::convertToText(stream->getFormat());
-  LOG(DEBUG) << "BufferCapacityInFrames " << stream->getBufferCapacityInFrames();
-  LOG(DEBUG) << "BufferSizeInFrames " << stream->getBufferSizeInFrames();
-  LOG(DEBUG) << "FramesPerBurst " << stream->getFramesPerBurst();
-  LOG(DEBUG) << "FramesPerCallback " << stream->getFramesPerCallback();
-  LOG(DEBUG) << "Timeout " << config.timeout.count() << " ms";
+//  LOG(DEBUG) << "~ " << oboe::convertToText(stream->getDirection()) << " ~";
+//  LOG(DEBUG) << "DeviceId " << stream->getDeviceId();
+//  LOG(DEBUG) << "AudioApi " << oboe::convertToText(stream->getAudioApi());
+//  LOG(DEBUG) << "SharingMode " << oboe::convertToText(stream->getSharingMode());
+//  LOG(DEBUG) << "PerformanceMode " << oboe::convertToText(stream->getPerformanceMode());
+//  LOG(DEBUG) << "SampleRate " << stream->getSampleRate();
+//  LOG(DEBUG) << "ChannelCount " << stream->getChannelCount();
+//  LOG(DEBUG) << "Format " << oboe::convertToText(stream->getFormat());
+//  LOG(DEBUG) << "BufferCapacityInFrames " << stream->getBufferCapacityInFrames();
+//  LOG(DEBUG) << "BufferSizeInFrames " << stream->getBufferSizeInFrames();
+//  LOG(DEBUG) << "FramesPerBurst " << stream->getFramesPerBurst();
+//  LOG(DEBUG) << "FramesPerCallback " << stream->getFramesPerCallback();
+//  LOG(DEBUG) << "Timeout " << config.timeout.count() << " ms";
 
   events.open();
 }

@@ -9,7 +9,7 @@ template<> struct WellKnownTimerDuration<std::chrono::microseconds> : std::true_
 template<> struct WellKnownTimerDuration<std::chrono::nanoseconds> : std::true_type {};
 
 template<typename T>
-class Timer
+class Timer final
 {
 
 public:

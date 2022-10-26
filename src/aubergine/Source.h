@@ -6,4 +6,3 @@
  **/
 
 #include <aubergine/etc/Format.h>
-#include <aubergine/etc/Log.h>

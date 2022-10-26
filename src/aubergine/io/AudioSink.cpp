@@ -52,7 +52,7 @@ void AudioSink::callback(const std::span<float> samples)
   {
     if (underflows.accumulate)
     {
-      LOG(INFO) << $("Audio sink {0} passed callbacks", underflows.count);
+      // TODO: LOG(INFO) << $("Audio sink {0} passed callbacks", underflows.count);
 
       underflows = { false, 0 };
     }
@@ -69,7 +69,7 @@ void AudioSink::callback(const std::span<float> samples)
     }
     else
     {
-      LOG(WARNING) << $("Audio sink fifo underflow! #{0}", index.outer);
+      // TODO: LOG(WARNING) << $("Audio sink fifo underflow! #{0}", index.outer);
     }
   }
 

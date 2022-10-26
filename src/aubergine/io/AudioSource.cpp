@@ -49,7 +49,7 @@ void AudioSource::callback(const std::span<float> samples)
 
   if (!ok)
   {
-    LOG(WARNING) << $("Audio source fifo overflow! #{0}", index.outer);
+    // TODO: LOG(WARNING) << $("Audio source fifo overflow! #{0}", index.outer);
   }
 
   ++index.outer;

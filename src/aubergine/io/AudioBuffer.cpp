@@ -19,8 +19,9 @@ void AudioBuffer::copyfrom(const std::span<float> samples)
 {
   if (buffer.size != samples.size())
   {
-    LOG(WARNING) << $("Unequal buffer size: {0} (this), {1} (other)",
-                      buffer.size, samples.size());
+    throw std::runtime_error(
+      $("Unequal buffer size: {0} (this), {1} (other)",
+        buffer.size, samples.size()));
   }
 
   const size_t size = std::min(buffer.size, samples.size());
@@ -32,8 +33,9 @@ void AudioBuffer::copyfrom(const AudioBuffer& other)
 {
   if (buffer.size != other.buffer.size)
   {
-    LOG(WARNING) << $("Unequal buffer size: {0} (this), {1} (other)",
-                      buffer.size, other.buffer.size);
+    throw std::runtime_error(
+      $("Unequal buffer size: {0} (this), {1} (other)",
+        buffer.size, other.buffer.size));
   }
 
   const size_t size = std::min(buffer.size, other.buffer.size);
@@ -45,8 +47,9 @@ void AudioBuffer::copyto(const std::span<float> samples) const
 {
   if (buffer.size != samples.size())
   {
-    LOG(WARNING) << $("Unequal buffer size: {0} (this), {1} (other)",
-                      buffer.size, samples.size());
+    throw std::runtime_error(
+      $("Unequal buffer size: {0} (this), {1} (other)",
+        buffer.size, samples.size()));
   }
 
   const size_t size = std::min(buffer.size, samples.size());
@@ -58,8 +61,9 @@ void AudioBuffer::copyto(AudioBuffer& other) const
 {
   if (buffer.size != other.buffer.size)
   {
-    LOG(WARNING) << $("Unequal buffer size: {0} (this), {1} (other)",
-                      buffer.size, other.buffer.size);
+    throw std::runtime_error(
+      $("Unequal buffer size: {0} (this), {1} (other)",
+        buffer.size, other.buffer.size));
   }
 
   const size_t size = std::min(buffer.size, other.buffer.size);
