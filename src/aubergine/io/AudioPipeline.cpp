@@ -16,12 +16,12 @@ AudioPipeline::~AudioPipeline()
 
 void AudioPipeline::onerror()
 {
-  events.error.reset();
+  events.error.unsubscribe();
 }
 
 void AudioPipeline::onerror(std::function<void()> callback)
 {
-  events.error.set(callback);
+  events.error.subscribe(callback);
 }
 
 void AudioPipeline::open()

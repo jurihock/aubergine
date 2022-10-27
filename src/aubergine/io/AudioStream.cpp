@@ -40,62 +40,62 @@ std::chrono::milliseconds AudioStream::timeout() const
 
 void AudioStream::onopen()
 {
-  events.open.reset();
+  events.open.unsubscribe();
 }
 
 void AudioStream::onopen(const std::function<void()> callback)
 {
-  events.open.set(callback);
+  events.open.subscribe(callback);
 }
 
 void AudioStream::onclose()
 {
-  events.close.reset();
+  events.close.unsubscribe();
 }
 
 void AudioStream::onclose(const std::function<void()> callback)
 {
-  events.close.set(callback);
+  events.close.subscribe(callback);
 }
 
 void AudioStream::onstart()
 {
-  events.start.reset();
+  events.start.unsubscribe();
 }
 
 void AudioStream::onstart(const std::function<void()> callback)
 {
-  events.start.set(callback);
+  events.start.subscribe(callback);
 }
 
 void AudioStream::onstop()
 {
-  events.stop.reset();
+  events.stop.unsubscribe();
 }
 
 void AudioStream::onstop(const std::function<void()> callback)
 {
-  events.stop.set(callback);
+  events.stop.subscribe(callback);
 }
 
 void AudioStream::onxrun()
 {
-  events.xrun.reset();
+  events.xrun.unsubscribe();
 }
 
 void AudioStream::onxrun(const std::function<void(const int32_t count)> callback)
 {
-  events.xrun.set(callback);
+  events.xrun.subscribe(callback);
 }
 
 void AudioStream::onerror()
 {
-  events.error.reset();
+  events.error.unsubscribe();
 }
 
 void AudioStream::onerror(const std::function<bool(const oboe::Result error)> callback)
 {
-  events.error.set(callback);
+  events.error.subscribe(callback);
 }
 
 void AudioStream::open()

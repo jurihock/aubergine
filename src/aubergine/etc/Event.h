@@ -27,12 +27,12 @@ public:
   {
   }
 
-  void set(const std::function<R(Args...)> action)
+  void subscribe(const std::function<R(Args...)> action)
   {
     actions.first = action;
   }
 
-  void reset()
+  void unsubscribe()
   {
     actions.first = actions.second;
   }
