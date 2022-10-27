@@ -62,4 +62,4 @@ target_link_libraries(${AubergineName} PUBLIC android log)
 find_package(oboe REQUIRED CONFIG)
 target_link_libraries(${AubergineName} PUBLIC oboe::oboe)
 
-target_link_libraries(${AubergineName} PUBLIC fmt readerwriterqueue)
+target_link_libraries(${AubergineName} PUBLIC readerwriterqueue)

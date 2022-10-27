@@ -126,7 +126,7 @@ void AudioStream::open()
     close();
 
     throw std::runtime_error(
-      $("Unable to open audio source stream: {0}",
+      $("Unable to open audio source stream: %s",
         oboe::convertToText(result)));
   }
 

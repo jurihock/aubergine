@@ -32,35 +32,35 @@ void AudioPipeline::open()
   if (source->samplerate() != sink->samplerate())
   {
     throw std::runtime_error(
-      $("Unequal audio stream sample rate: {0} (source), {1} (sink)!",
+      $("Unequal audio stream sample rate: %f (source), %f (sink)!",
         source->samplerate(), sink->samplerate()));
   }
 
   if (source->samplerate() == 0 || sink->samplerate() == 0)
   {
     throw std::runtime_error(
-      $("Invalid audio stream sample rate: {0} (source), {1} (sink)!",
+      $("Invalid audio stream sample rate: %f (source), %f (sink)!",
         source->samplerate(), sink->samplerate()));
   }
 
   if (source->buffersize() != sink->buffersize())
   {
     throw std::runtime_error(
-      $("Unequal audio stream buffer size: {0} (source), {1} (sink)!",
+      $("Unequal audio stream buffer size: %zu (source), %zu (sink)!",
         source->buffersize(), sink->buffersize()));
   }
 
   if (source->buffersize() == 0 || sink->buffersize() == 0)
   {
     throw std::runtime_error(
-      $("Invalid audio stream buffer size: {0} (source), {1} (sink)!",
+      $("Invalid audio stream buffer size: %zu (source), %zu (sink)!",
         source->buffersize(), sink->buffersize()));
   }
 
   if (source->maxbuffersize() == 0 || sink->maxbuffersize() == 0)
   {
     throw std::runtime_error(
-      $("Invalid audio stream max. buffer size: {0} (source), {1} (sink)!",
+      $("Invalid audio stream max. buffer size: %zu (source), %zu (sink)!",
         source->maxbuffersize(), sink->maxbuffersize()));
   }
 
